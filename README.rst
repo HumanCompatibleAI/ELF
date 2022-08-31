@@ -6,9 +6,18 @@
 .. |copy| unicode:: 0xA9
 .. |---| unicode:: U+02014
 
+About this fork
+===============
+
+This fork of ELF makes ``scripts/elfgames/go/gtp.sh``
+work on PyTorch 1.12.0. At some point, PyTorch had a change that broke
+``gtp.sh``. Using an old version of PyTorch is not always an option, however.
+Newer GPUs require newer versions of CUDA that require new versions of PyTorch.
+
 ===
 ELF
 ===
+
 
 ELF is an Extensive, Lightweight, and Flexible platform for game research. We have used it to build our Go playing bot, `ELF OpenGo`__, which achieved a 14-0 record versus four global top-30 players in April 2018. The final score is 20-0 (each professional Go player plays 5 games).
 
