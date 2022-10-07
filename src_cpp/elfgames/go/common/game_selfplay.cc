@@ -296,6 +296,10 @@ void GoGameSelfPlay::act() {
         finish_game(FR_ILLEGAL);
         return;
       }
+      if (_options.move_cutoff > 0 && s.getPly() >= _options.move_cutoff) {
+        finish_game(FR_MAX_STEP);
+        return;
+      }
 
       BoardFeature bf(s);
       GoReply reply(bf);
@@ -418,9 +422,7 @@ void GoGameSelfPlay::act() {
   }
 
   if (s.terminated()) {
-    auto reason = s.isTwoPass()
-        ? FR_TWO_PASSES
-        : s.getPly() >= BOARD_MAX_MOVE ? FR_MAX_STEP : FR_ILLEGAL;
+    auto reason = s.isTwoPass() ? FR_TWO_PASSES : FR_ILLEGAL;
     finish_game(reason);
   }
 

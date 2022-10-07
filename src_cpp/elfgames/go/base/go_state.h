@@ -143,7 +143,7 @@ class GoState {
   }
 
   bool terminated() const {
-    return isTwoPass() || getPly() >= BOARD_MAX_MOVE || _check_superko();
+    return isTwoPass() || _check_superko();
   }
 
   Coord lastMove() const {
